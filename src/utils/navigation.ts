@@ -1,10 +1,12 @@
 // An array of links for navigation bar
 const navBarLinks = [
-  { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
-  { name: "Blog", url: "/blog" },
-  { name: "Contact", url: "/contact" },
+  { name: "Home", url: "/", target: "_self" },
+  { name: "YouConnect Platform", url: "https://youdemonia-table.vercel.app/", target: "_blank" },
+  { name: "About", url: "/about", target: "_self" },
+  { name: "Tutorials", url: "/tutorials", target: "_self" },
+  { name: "Our Events", url: "/events", target: "_self" },
+  { name: "Press", url: "/press", target: "_self" },
+  { name: "Contact", url: "/contact", target: "_self" },
 ];
 // An array of links for footer
 const footerLinks = [
