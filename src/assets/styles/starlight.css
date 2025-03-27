@@ -1,19 +1,6 @@
 /* Dark mode colors. */
 :root {
     --border: hsla(var(--border-neutral), .4);
-<<<<<<< HEAD
-    --backdrop-color: #ffd1dc; /* Light pink */
-
-    --sl-color-pink-1: #fff0f5;
-    --sl-color-pink-2: #ffe4e9;
-    --sl-color-pink-3: #ffccd5;
-    --sl-color-pink-4: #ffb3c1;
-    --sl-color-pink-5: #ff99ac;
-    --sl-color-pink-6: #ff7b9c;
-
-    --sl-color-green-accent: #a8e6a2; /* Light green */
-    --list-marker-color: var(--sl-color-green-accent);
-=======
     --backdrop-color: #272727cc;
     --sl-color-accent: #ff801f;
     --sl-color-accent-high: #ffa057;
@@ -28,15 +15,11 @@
     --sl-color-white: #fff;
     --list-marker-color: #7f22ce;
     --border-neutral: 0, 0%, 25.1%;
->>>>>>> 0e043b2b0fc1329fb10e4bd9a009c48cd8a9faad
 }
 
 /* Light mode colors. */
 :root[data-theme="light"] {
     --border: hsla(var(--border-yellow), .4);
-<<<<<<< HEAD
-    --backdrop-color: #ffe4e9; /* Softer light pink */
-=======
     --backdrop-color: #f6f6f699;
     --sl-color-accent: #b73d00;
     --sl-color-accent-high: #562800;
@@ -52,7 +35,6 @@
     --sl-color-white: #181818;
     --list-marker-color: #7f22ce;
     --border-yellow: 54.9, 96.7%, 88%;
->>>>>>> 0e043b2b0fc1329fb10e4bd9a009c48cd8a9faad
 
     --sl-color-pink-1: #ffd1dc;
     --sl-color-pink-2: #ffccd5;
