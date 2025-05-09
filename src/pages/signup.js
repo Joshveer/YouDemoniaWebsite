@@ -1,48 +1,29 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { getDatabase, ref, set } from "firebase/database";
-import { auth, provider } from '../firebase-init.js';
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { ref, set } from "firebase/database";
+import { auth, provider, database } from "../firebase-init.js";
 
-const googleBtn = document.getElementById('googleBtn');
-
-if (googleBtn) {
-  googleBtn.addEventListener('click', () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        console.log("Google sign-in success:", result.user);
-        alert("Signed in as: " + result.user.email);
-        // Optionally redirect to dashboard
-      })
-      .catch((error) => {
-        console.error("Google sign-in error:", error);
-        alert("Google sign-in failed");
-      });
-  });
-}
-
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+  const roleSelect = document.getElementById("role");
   const signupBtn = document.getElementById("signupBtn");
   const googleBtn = document.getElementById("googleBtn");
 
   signupBtn?.addEventListener("click", async () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const role = document.getElementById("role").value;
-
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, emailInput.value, passwordInput.value);
       const user = userCredential.user;
       await set(ref(database, "users/" + user.uid), {
         email: user.email,
-        role: role,
+        role: roleSelect.value,
       });
-      alert("Signed up as " + role);
-    } catch (error) {
-      alert(error.message);
+      alert("Signed up as " + roleSelect.value);
+    } catch (err) {
+      alert(err.message);
     }
   });
 
   googleBtn?.addEventListener("click", async () => {
-    const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
@@ -51,8 +32,8 @@ window.addEventListener("DOMContentLoaded", () => {
         role: "student",
       });
       alert("Signed in with Google");
-    } catch (error) {
-      alert(error.message);
+    } catch (err) {
+      alert(err.message);
     }
   });
 });
