@@ -1,4 +1,5 @@
 ---
+import GoogleSignIn from 'src/components/GoogleSignIn';
 const { title } = Astro.props;
 
 interface Props {
@@ -34,12 +35,4 @@ const googleSVG = `<svg
   </svg>`;
 ---
 
-<button
-  type="button"
-  class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${ringClasses}`}
->
-  <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
-
-  <Fragment set:html={googleSVG} />
-  {title}
-</button>
+<GoogleSignIn client:load />
